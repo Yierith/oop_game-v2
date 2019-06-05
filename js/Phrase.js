@@ -29,7 +29,12 @@ class Phrase {
   * @param (string) letter - Letter to check
   */
   checkLetter(letter){
-
+    for (let i = 0; i < this.phrase.length; i++){
+      if(letter == this.phrase[i]){
+        return true;
+      }
+    }
+    return false;
   };
 
 
@@ -38,8 +43,13 @@ class Phrase {
   * @param (string) letter - Letter to display
   */
   showMatchedLetter(letter){
-
-
+    if (this.phrase.includes(letter) ){
+      const letterLi = document.querySelectorAll(`.${letter}`);
+      for (let li of letterLi) {
+        li.classList.remove('hide');
+        li.classList.add('show');
+      }
+    }
   };
 
 
