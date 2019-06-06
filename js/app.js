@@ -15,4 +15,4 @@ startButton.addEventListener('click', (event) => {
 });
 
 
-// Step 9 - check for win
+// Step 10 - check for win
