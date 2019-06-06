@@ -43,18 +43,49 @@ class Game {
   * @return {boolean} True if game has been won, false if game wasn't won
   */
   checkForWin(){
-    const letterLi = document.querySelectorAll(`.hide letter`);
-    if( letterLi.length > 0 ){
+    const letterLi = document.querySelectorAll(`.hide.letter`);
+    if( letterLi.length > 0  ){
       return false;
     }else{
       return true;
     }
+  };
 
+  /**
+  * Increases the value of the missed property
+  * Removes a life from the scoreboard
+  * Checks if player has remaining lives and ends game if player is out
+  */
+  removeLife(){
+    const heartOL = document.querySelector('#scoreboard ol');
+    const heartImages = document.querySelectorAll('.tries');
+    const firstImage = heartImages[this.missed];
+    if (this.missed < 4){
+      heartImages[this.missed].firstChild.src = 'images/lostHeart.png';
+      this.missed = this.missed + 1;
+    }else{
+      heartImages[this.missed].firstChild.src = 'images/lostHeart.png';
+      gameOver();
+    }
   };
 
 
-
-
+  /**
+  * Displays game over message
+  * @param {boolean} gameWon - Whether or not the user won the game
+  */
+  gameOver(gameWon){
+    const overlay = document.querySelector('#overlay');
+    const overlayH1 = document.querySelector('#game-over-message');
+    overlay.style.display = '';
+    if(gameWon){
+      overlayH1.textContent = 'Great job!';
+      overlay.style.backgroundColor = '#5ac179';
+    }else{
+      overlayH1.textContent = 'Sorry, better luck next time!';
+      overlay.style.backgroundColor = 'coral';
+    }
+  };
 
 
 
