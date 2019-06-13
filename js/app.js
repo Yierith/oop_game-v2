@@ -10,9 +10,11 @@
 const game = new Game();
 const startButton = document.getElementById('btn__reset');
 const keyboardButtons = document.getElementById('qwerty');
+const allowedKeys = 'abcdefghijklmnopqrstuvwxyz'
 
 startButton.addEventListener('click', (event) => {
   game.startGame();
+
 });
 
 
@@ -20,7 +22,6 @@ startButton.addEventListener('click', (event) => {
 * Handles onscreen keyboard button clicks
 * @param (HTMLButtonElement) button - The clicked button element
 */
-
 keyboardButtons.addEventListener('click', (e) => {
   if (e.target.className === 'key'){
     const button = e.target;
@@ -36,8 +37,14 @@ keyboardButtons.addEventListener('click', (e) => {
     if(game.checkForWin()){
       game.gameOver(true);
     }
+  }
+});
 
-
+document.addEventListener('keydown', (e) => {
+  let pressedKey = e.key;
+  console.log(e.key)
+  if( allowedKeys.includes(pressedKey) ){
+    game.handleInteraction(e)
   }
 });
 
