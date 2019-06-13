@@ -37,7 +37,8 @@ li, ol, ul {
 
 h2 {
   margin: 0;
-  text-transform: uppercase;
+  font-family: 'Acme', sans-serif;
+  /* text-transform: uppercase; */
   font-size: var(--font-size-large);
   margin: 0;
 }
@@ -87,6 +88,7 @@ button {
 
 .header {
   color: #3a3f58;
+  font-size: 4em;
 }
 
 
@@ -130,6 +132,12 @@ button {
   justify-content: center;
 }
 
+.key:hover{
+  color: white;
+  background-color: #3a3f58;
+  box-shadow: 4px 4px 7px -2px rgba(0,0,0,0.2);
+}
+
 .chosen {
   background: #3a3f58;
   border-radius: 5px;
@@ -151,6 +159,10 @@ button {
   cursor: pointer;
   border-bottom: solid 4px rgba(0, 0, 0, .3);
   border-right: solid 3px rgba(0, 0, 0, .3)
+}
+#btn__reset:hover{
+  transform: scale(1.3);
+  transition-duration: .3s;
 }
 
 .btn__reset:active {
@@ -177,7 +189,8 @@ button {
 
 .title {
   color: #FFF;
-}
+  font-size: 4em;
+  }
 
 .start {
   background-color: #3a3f58;
