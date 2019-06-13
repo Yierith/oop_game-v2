@@ -30,9 +30,28 @@ class Game {
   };
 
   /**
+  * Reset the game
+  */
+  gameReset(){
+    let phraseUl = document.getElementsByTagName('UL')[0].innerHTML = '';
+    let allb = document.getElementsByTagName('button');
+    for(let i = 0; i < allb.length; i++){
+      allb[i].className = 'key';
+    }
+    const heartImages = document.querySelectorAll('.tries');
+    for(let i = 0; i < heartImages.length; i++){
+      heartImages[i].firstChild.src = 'images/liveHeart.png';
+    }
+    this.missed = 0;
+
+  }
+
+
+  /**
   * Begins game by selecting a random phrase and displaying it to user
   */
   startGame(){
+    game.gameReset();
     document.getElementById('overlay').style.display = 'none';
     this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
@@ -86,9 +105,4 @@ class Game {
       overlay.style.backgroundColor = 'coral';
     }
   };
-
-
-
-
-
 }
