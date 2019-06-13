@@ -79,12 +79,17 @@ class Game {
     const heartOL = document.querySelector('#scoreboard ol');
     const heartImages = document.querySelectorAll('.tries');
     const firstImage = heartImages[this.missed];
+    document.querySelector('body').style.backgroundColor = 'coral';
+    setTimeout(function(){
+    //do what you need here
+      document.querySelector('body').style.backgroundColor = '';
+    }, 300);
     if (this.missed < 4){
       heartImages[this.missed].firstChild.src = 'images/lostHeart.png';
       this.missed = this.missed + 1;
     }else{
       heartImages[this.missed].firstChild.src = 'images/lostHeart.png';
-      game.gameOver();
+      this.gameOver();
     }
   };
 
@@ -105,4 +110,35 @@ class Game {
       overlay.style.backgroundColor = 'coral';
     }
   };
+
+  /**
+  * Handles onscreen keyboard button clicks
+  * @param (HTMLButtonElement) button - The clicked button element
+  */
+  handleInteraction(event){
+    const keys = document.getElementsByClassName('key');
+    let letter = event.key;
+    let targetKey;
+    for(let key of keys){
+      if( key.textContent === event.key){
+        targetKey = key;
+      }
+    }
+    targetKey.setAttribute('disabled', 'disabled')
+    if ( this.activePhrase.checkLetter(letter) ){
+      targetKey.classList.add('chosen');
+      this.activePhrase.showMatchedLetter(letter)
+      if(this.checkForWin()){
+        this.gameOver(true);
+      }
+    }else{
+      targetKey.classList.add('wrong');
+      this.removeLife();
+    }
+
+
+  };
+
+
+
 }
