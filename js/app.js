@@ -23,9 +23,23 @@ startButton.addEventListener('click', (event) => {
 
 keyboardButtons.addEventListener('click', (e) => {
   if (e.target.className === 'key'){
-    console.log(e.target);
+    const button = e.target;
+    const buttonText = e.target.textContent;
+    const letterCheck = game.activePhrase.checkLetter(buttonText);
+    if (letterCheck){
+      button.className = 'chosen';
+      game.activePhrase.showMatchedLetter(buttonText);
+    }else{
+      button.className = 'wrong';
+      game.removeLife();
+    }
+    if(game.checkForWin()){
+      game.gameOver(true);
+    }
+
+
   }
 });
 
 
-// Step 11 - check for win
+// Step 12 - check for win
