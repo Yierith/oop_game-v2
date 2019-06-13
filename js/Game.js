@@ -65,7 +65,7 @@ class Game {
       this.missed = this.missed + 1;
     }else{
       heartImages[this.missed].firstChild.src = 'images/lostHeart.png';
-      gameOver();
+      game.gameOver();
     }
   };
 
