@@ -12,6 +12,7 @@ class Phrase {
   */
   addPhraseToDisplay(){
     let phraseUl = document.getElementsByTagName('UL')[0];
+    // Iterating over every letter and adding placeholders to the page
     for( let i = 0; i < this.phrase.length; i++ ){
       let li = document.createElement('li');
       if( this.phrase[i] != " "){
@@ -29,6 +30,7 @@ class Phrase {
   * @param (string) letter - Letter to check
   */
   checkLetter(letter){
+    // Checking if the letter is inside the phrase
     for (let i = 0; i < this.phrase.length; i++){
       if(letter == this.phrase[i]){
         return true;
@@ -43,6 +45,7 @@ class Phrase {
   * @param (string) letter - Letter to display
   */
   showMatchedLetter(letter){
+    // Showing matched letter if phrase includes the letter
     if (this.phrase.includes(letter) ){
       const letterLi = document.querySelectorAll(`.${letter}`);
       for (let li of letterLi) {
