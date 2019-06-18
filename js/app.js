@@ -49,4 +49,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-// Step 12 - check for win
+// Detail your style changes in your README.md file and in your submission notes.
+// start game button is changing while hovering
+// changed the font style
+// Added Hover effect
