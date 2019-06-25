@@ -39,6 +39,8 @@ class Game {
     // their class to 'key'
     for(let i = 0; i < allButtons.length; i++){
       allButtons[i].className = 'key';
+      allButtons[i].disabled = false;
+
     }
     const heartImages = document.querySelectorAll('.tries');
     for(let i = 0; i < heartImages.length; i++){
