@@ -1,20 +1,16 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * app.js */
-//
-// const game = new Game();
-// game.startGame();
-// console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
-//
 
-const game = new Game();
+let game;
+
 const startButton = document.getElementById('btn__reset');
 const keyboardButtons = document.getElementById('qwerty');
 const allowedKeys = 'abcdefghijklmnopqrstuvwxyz'
 
 startButton.addEventListener('click', (event) => {
+  game = new Game();
   game.startGame();
-
 });
 
 
@@ -40,9 +36,13 @@ keyboardButtons.addEventListener('click', (e) => {
   }
 });
 
+/**
+* Handles keyboard clicks
+* @param (HTMLButtonElement) button - The clicked button element
+*/
 document.addEventListener('keydown', (e) => {
   let pressedKey = e.key;
-  console.log(e.key)
+  console.log(pressedKey)
   if( allowedKeys.includes(pressedKey) ){
     game.handleInteraction(e)
   }
