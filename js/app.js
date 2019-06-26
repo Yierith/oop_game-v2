@@ -42,7 +42,6 @@ keyboardButtons.addEventListener('click', (e) => {
 */
 document.addEventListener('keydown', (e) => {
   let pressedKey = e.key;
-  console.log(pressedKey)
   if( allowedKeys.includes(pressedKey) ){
     game.handleInteraction(e)
   }
