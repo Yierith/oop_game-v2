@@ -56,7 +56,7 @@ class Game {
   * Begins game by selecting a random phrase and displaying it to user
   */
   startGame(){
-    game.gameReset();
+    this.gameReset();
     // Hiding the overlay
     document.getElementById('overlay').style.display = 'none';
     // Getting a randomPhrase
@@ -117,9 +117,11 @@ class Game {
     overlay.style.display = '';
     // Showing different messages and colors if the game is lost or won
     if(gameWon){
+      overlay.className = 'win';
       overlayH1.textContent = 'Great job!';
       overlay.style.backgroundColor = '#5ac179';
     }else{
+      overlay.className = 'lose';
       overlayH1.textContent = 'Sorry, better luck next time!';
       overlay.style.backgroundColor = 'coral';
     }
@@ -155,10 +157,6 @@ class Game {
       targetKey.classList.add('wrong');
       this.removeLife();
     }
-
-
   };
-
-
 
 }
